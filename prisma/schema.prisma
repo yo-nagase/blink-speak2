@@ -11,6 +11,10 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+enum Language {
+  JP
+  EN
+}
 
 model Todo {
   id        Int      @id @default(autoincrement())
@@ -21,19 +25,17 @@ model Todo {
   updatedAt DateTime @updatedAt
 }
 
-
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
- 
 }
 
 model Quiz {
   id             Int      @id @default(autoincrement())
   title          String
   description    String?
-  targetLanguage String   @map("target_language")
+  targetLanguage Language @map("target_language")
   level          String
   createdAt      DateTime @default(dbgenerated("timezone('utc'::text, now())")) @map("created_at") @db.Timestamptz
 }

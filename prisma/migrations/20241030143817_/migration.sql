@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "Language" AS ENUM ('JP', 'EN');
+
 -- CreateTable
 CREATE TABLE "Todo" (
     "id" SERIAL NOT NULL,
@@ -11,17 +14,6 @@ CREATE TABLE "Todo" (
 );
 
 -- CreateTable
-CREATE TABLE "Post" (
-    "id" SERIAL NOT NULL,
-    "title" TEXT NOT NULL,
-    "content" TEXT,
-    "published" BOOLEAN NOT NULL DEFAULT false,
-    "authorId" INTEGER,
-
-    CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
@@ -30,8 +22,17 @@ CREATE TABLE "User" (
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Quiz" (
+    "id" SERIAL NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT,
+    "target_language" "Language" NOT NULL,
+    "level" TEXT NOT NULL,
+    "created_at" TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
+
+    CONSTRAINT "Quiz_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
-
--- AddForeignKey
-ALTER TABLE "Post" ADD CONSTRAINT "Post_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

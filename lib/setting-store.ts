@@ -8,8 +8,8 @@ export enum Level {
   TOEIC_900 = 'TOEIC_900',
 }
 export enum Language {
-  ENGLISH = 'ENGLISH',
-  JAPANESE = 'JAPANESE'
+  ENGLISH = 'EN',
+  JAPANESE = 'JP'
 }
 
 interface SettingStore {
