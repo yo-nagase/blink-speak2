@@ -17,3 +17,6 @@ migrate:
 migrate-reset:
 	npx prisma migrate reset
 	npx prisma db seed
+
+run:
+	npm run dev
