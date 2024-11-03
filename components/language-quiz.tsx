@@ -117,7 +117,7 @@ export function LanguageQuiz() {
   }
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="py-8">
       <div className="container max-w-3xl mx-auto px-4">
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
