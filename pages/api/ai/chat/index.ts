@@ -4,8 +4,8 @@ export default async function handler(req, res) {
   console.log("🐵Query🐵", req.query);
   if (req.method === "GET") {
     const id = req.query.id;
-    const question = req.query.question ?? "xxxxx";
-    const answer = req.query.answer ?? "xxxxx";
+    const question = req.query.question ?? "彼は今日中に宿題を終わらせなくてはならない";
+    const answer = req.query.answer ?? "He need to complete his homework until today";
 
     console.log("question", question);
     console.log("answer", answer);
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     };
 
     const data = {
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",

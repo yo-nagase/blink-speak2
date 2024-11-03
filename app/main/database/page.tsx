@@ -10,6 +10,7 @@ export default function DatabasePage({ children }: { children: React.ReactNode }
         <Title>Database</Title>
         
         Get data from database.
+        
 
       </div>
     </main>
