@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Link, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import React from "react";
 import { ModeToggle } from "./ModeToggle";
 
@@ -17,7 +17,7 @@ export default function TopMenuBar() {
 
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b bg-white bg-opacity-50 backdrop-blur-sm dark:bg-black dark:bg-opacity-50">
       <div className="w-full flex  justify-between h-12 px-4">
         <div className="flex items-center">
           <span className="flex items-center mr-4">

@@ -60,7 +60,7 @@ const data = {
   navMain: [
     {
       title: "テスト画面",
-      url: "/main/question",
+      url: "/main/quiz",
       icon: Bot,
       // items: [
       //   {
@@ -200,7 +200,7 @@ const data = {
   projects: [
     {
       name: "テスト画面",
-      url: "/main/question",
+      url: "/main/quiz",
       icon: Frame,
     },
     {
@@ -266,9 +266,6 @@ export function AppSidebar() {
         <SidebarItem>
           <SidebarLabel>Help</SidebarLabel>
           <NavSecondary items={data.navSecondary} />
-        </SidebarItem>
-        <SidebarItem>
-          <StorageCard />
         </SidebarItem>
       </SidebarContent>
       <SidebarFooter>
