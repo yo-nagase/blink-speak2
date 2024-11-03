@@ -250,7 +250,7 @@ const data = {
 
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-[50px] flex flex-col h-[calc(100vh-50px)] bg-inherit">
+    <Sidebar className="mt-[50px] flex flex-col bg-inherit">
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
