@@ -27,6 +27,7 @@ import {
   XOctagon
 } from "lucide-react"
 import { useState, useEffect } from "react"
+import useQuestion from "./hooks/useQuestion"
 
 type AnswerHistory = {
   id: number
@@ -50,6 +51,7 @@ export function LanguageQuiz() {
     total: 23
   })
   const [autoSubmit, setAutoSubmit] = useState(false)
+  const { getNewQuestion, getCurrentQuestion, isQuestionLoading, error } = useQuestion()
 
   const [answerHistory, setAnswerHistory] = useState<AnswerHistory[]>([
     {
@@ -79,10 +81,12 @@ export function LanguageQuiz() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer(prev => prev + 1)
-    }, 1000)
-    return () => clearInterval(interval)
+    // const interval = setInterval(() => {
+    //   setTimer(prev => prev + 1)
+    // }, 1000)
+    // return () => clearInterval(interval)
+
+
   }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -180,7 +184,7 @@ export function LanguageQuiz() {
             </div>
             <div className="flex justify-between items-start mb-6">
               <div className="text-xl font-medium">
-                昨日は忙しかったので、映画を見に行けませんでした。
+                昨日は忙しかったので、映画を見に行けませんでした。<br />
               </div>
               <Button variant="ghost" size="icon" className="mt-1">
                 <Volume2 className="h-4 w-4" />
@@ -212,7 +216,7 @@ export function LanguageQuiz() {
                   className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   onClick={() => {
                     if (autoSubmit) {
-                      handleSubmit(new Event('submit') as React.FormEvent)
+                      handleSubmit(new Event('submit') as unknown as React.FormEvent)
                     }
                   }}
                 >

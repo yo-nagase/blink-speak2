@@ -1,5 +1,5 @@
 'use client'
-import { LanguageQuiz } from "@/components/language-quiz";
+import { LanguageQuiz } from "@/components/language-quiz/language-quiz";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Language, useSettingStore } from "@/lib/setting-store";

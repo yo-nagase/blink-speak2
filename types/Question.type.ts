@@ -6,5 +6,7 @@ export interface Question {
   id: string;
   contents: string;
   level: number;
+  correctCount: number;
+  wrongCount: number;
   category: string[];
 }

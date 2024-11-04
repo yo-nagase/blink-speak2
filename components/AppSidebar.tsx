@@ -2,7 +2,6 @@
 
 import {
   Atom,
-  Bird,
   BookOpen,
   Bot,
   Code2,
@@ -16,15 +15,12 @@ import {
   Send,
   Settings2,
   SquareTerminal,
-  Star,
-  Turtle,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
-import { StorageCard } from "@/components/storage-card"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,

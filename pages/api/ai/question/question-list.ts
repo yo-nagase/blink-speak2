@@ -1,13 +1,6 @@
+import { Question } from "@/types/Question.type";
 
-export type Question = {
-  id: string,
-  contents: string,
-  level: number,
-  category: string[],
-  correctCount: number,
-  wrongCount: number,
-  hash?: string
-}
+
 // 問題はDBから取得できる様にあらかじめ用意しておく。
 export const questionList: Question[] = [{
   'id': '1',
