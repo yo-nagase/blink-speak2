@@ -6,7 +6,7 @@ import { Language, useSettingStore } from "@/lib/setting-store";
 import { Title } from "@radix-ui/react-toast";
 import React from "react";
 
-export default function QuestionPage({ children }: { children: React.ReactNode }) {
+export default function QuestionPage() {
 
   const targetLanguage = useSettingStore((state) => state.targetLanguage)
   const level = useSettingStore((state) => state.level)
