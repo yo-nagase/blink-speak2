@@ -1,4 +1,5 @@
 'use client'
+import Home from "@/components/Home";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Language, useSettingStore } from "@/lib/setting-store";
@@ -21,6 +22,8 @@ export default function Zustand1() {
 
 
           {targetLanguage}
+
+          <Home />
         </div>
       </div>
     </main>

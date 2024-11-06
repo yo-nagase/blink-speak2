@@ -69,7 +69,7 @@ TOEIC${params.level}点レベルの例文を日本語で作ってください` +
           `例文の長さは5語から30語くらいになる様にしてください。例文は一つだけ出力してください。
 項目名は"question"としてください。
     ` }],
-    model: "gpt-3.5-turbo-1106",
+    model: "gpt-4o-mini",
     // model: "gpt-4-1106-preview",
     response_format: { type: "json_object" },
     // response_format: "json",

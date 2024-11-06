@@ -51,7 +51,7 @@ export function LanguageQuiz() {
     total: 23
   })
   const [autoSubmit, setAutoSubmit] = useState(false)
-  const { getNewQuestion, getCurrentQuestion, isQuestionLoading, error } = useQuestion()
+  const { getNewQuestion, currentQuestion, isQuestionLoading, error } = useQuestion()
 
   const [answerHistory, setAnswerHistory] = useState<AnswerHistory[]>([
     {
