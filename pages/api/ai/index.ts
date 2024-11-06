@@ -1,10 +1,9 @@
 import OpenAI from "openai";
-import { ChatCompletionMessageParam } from "openai/resources";
-
+import { NextApiRequest, NextApiResponse } from 'next';
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
     // read secret
     console.log("🈲secret");

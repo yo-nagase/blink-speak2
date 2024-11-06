@@ -14,8 +14,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   console.log("🐵🐵🐵🐵", req.query);
 
-  const params: QuestionRequest = req.query
-  console.log("🐵🐵", params);
+  // const params: QuestionRequest = req.query
+  // console.log("🐵🐵", params);
 
   if (req.method === "GET") {
     // ランダムで問題を取得する
@@ -26,13 +26,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // ここで暫定的に、問題を生成して設定する
     // TODO: ここで生成した問題を設定する。これは仮の処理
-    const newQuestion = await generateQuestion(params)
+    const newQuestion = await generateQuestion({ level: returnQuestion.level, category: returnQuestion.category })
     console.log("🚢", newQuestion)
     returnQuestion.contents = newQuestion.question
 
     //質問文からhashを生成する
-    returnQuestion.hash = createHash('md5').update(newQuestion.question).digest('hex');
-    console.log("Hash:", returnQuestion.hash)
+    // returnQuestion.hash = createHash('md5').update(newQuestion.question).digest('hex');
+    // console.log("Hash:", returnQuestion.hash)
 
 
     res.status(200).json(returnQuestion);
@@ -74,7 +74,7 @@ TOEIC${params.level}点レベルの例文を日本語で作ってください` +
     response_format: { type: "json_object" },
     // response_format: "json",
   });
-  const resultJson = JSON.parse(chatCompletion.choices[0].message.content)
+  const resultJson = JSON.parse(chatCompletion.choices[0].message.content ?? "")
 
   return { question: resultJson.question }
 }
