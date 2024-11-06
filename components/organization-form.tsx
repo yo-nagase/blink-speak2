@@ -30,12 +30,8 @@ export function OrganizationFormComponent() {
     setIsLoading(true)
 
     const formData = new FormData(event.currentTarget)
-    const organizationData: OrganizationData = {
-      name: formData.get('name') as string,
-      description: formData.get('description') as string,
-      website: formData.get('website') as string,
-      employeeCount: Number(formData.get('employeeCount')),
-    }
+
+
 
     try {
       // Simulating API call with a timeout
@@ -52,7 +48,8 @@ export function OrganizationFormComponent() {
       // })
       // if (!response.ok) throw new Error('Failed to save organization')
 
-      console.log(organizationData)
+
+
 
     } finally {
       setIsLoading(false)

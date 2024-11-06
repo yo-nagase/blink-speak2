@@ -28,8 +28,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const fileContent: any = await new Promise((resolve, reject) => {
       form.parse(req, (err, _fields, files) => {
         console.log("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️", _fields)
-        console.log("🌲", files.file[0].filepath)
-        if (isFile(files.file[0])) {
+        console.log("🌲", files?.file?.[0]?.filepath)
+        if (files.file && isFile(files.file[0])) {
           resolve(fs.createReadStream(files.file[0].filepath))
         }
         return reject('ほ　file is not found')

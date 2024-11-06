@@ -4,7 +4,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Language, useSettingStore } from "@/lib/setting-store";
 import React from "react";
 
-export default function Zustand1({ children }: { children: React.ReactNode }) {
+export default function Zustand1() {
 
   const targetLanguage = useSettingStore((state) => state.targetLanguage)
   const level = useSettingStore((state) => state.level)

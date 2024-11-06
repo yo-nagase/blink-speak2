@@ -28,7 +28,7 @@ app.post('/upload', (req: Request, res: Response) => {
             res.status(400).send("Something went wrong!");
         }
         // At this point, the file is available in req.file.buffer
-        console.log(req.file.buffer); // This is your file data
+        //console.log(req.file.buffer); // This is your file data
         res.send('File uploaded successfully.');
     });
 });

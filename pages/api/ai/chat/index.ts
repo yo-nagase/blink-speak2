@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   console.log("🐵Query🐵", req.query);
   if (req.method === "GET") {
     const id = req.query.id;
