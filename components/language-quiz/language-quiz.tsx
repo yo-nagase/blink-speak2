@@ -355,7 +355,7 @@ export function LanguageQuiz() {
                   <div className="pt-2 border-t">
                     <div className="text-xs font-medium mb-1">Tips</div>
                     <div className="text-sm text-muted-foreground">
-                      主語が三人称単数形の場合は、'goes'を使いましょう。また、所有格の場合は 'her' を使います。
+                      主語が三人称単数形の場合は、goesを使いましょう。また、所有格の場合は her を使います。
                     </div>
                   </div>
                 </div>
