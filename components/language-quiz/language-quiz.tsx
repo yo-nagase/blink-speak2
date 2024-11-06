@@ -170,7 +170,7 @@ export function LanguageQuiz() {
                           <h4 className="font-medium mb-2">{attempt.correct ? 'Correct' : 'Incorrect'}</h4>
                           <div className="text-sm space-y-1">
                             <p><span className="font-medium">Date:</span> {formatDate(attempt.timestamp)}</p>
-                            <p><span className="font-medium">Answer:</span> "{attempt.answer}"</p>
+                            <p><span className="font-medium">Answer:</span> {attempt.answer}</p>
                           </div>
                         </div>
                       </Card>
