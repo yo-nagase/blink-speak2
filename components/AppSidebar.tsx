@@ -2,7 +2,6 @@
 
 import {
   Atom,
-  Bird,
   BookOpen,
   Bot,
   Code2,
@@ -16,15 +15,12 @@ import {
   Send,
   Settings2,
   SquareTerminal,
-  Star,
-  Turtle,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
-import { StorageCard } from "@/components/storage-card"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
@@ -60,7 +56,7 @@ const data = {
   navMain: [
     {
       title: "テスト画面",
-      url: "/main/question",
+      url: "/main/quiz",
       icon: Bot,
       // items: [
       //   {
@@ -200,7 +196,7 @@ const data = {
   projects: [
     {
       name: "テスト画面",
-      url: "/main/question",
+      url: "/main/quiz",
       icon: Frame,
     },
     {
@@ -250,7 +246,7 @@ const data = {
 
 export function AppSidebar() {
   return (
-    <Sidebar className="mt-[50px] flex flex-col h-[calc(100vh-50px)] bg-inherit">
+    <Sidebar className="mt-[50px] flex flex-col bg-inherit">
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
@@ -266,9 +262,6 @@ export function AppSidebar() {
         <SidebarItem>
           <SidebarLabel>Help</SidebarLabel>
           <NavSecondary items={data.navSecondary} />
-        </SidebarItem>
-        <SidebarItem>
-          <StorageCard />
         </SidebarItem>
       </SidebarContent>
       <SidebarFooter>
