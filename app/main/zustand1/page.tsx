@@ -3,9 +3,14 @@ import Home from "@/components/Home";
 import { Button } from "@/components/ui/button";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Language, useSettingStore } from "@/lib/setting-store";
+import { Question } from "@/types/Question.type";
 import React from "react";
 
-export default function Zustand1() {
+
+
+
+export default async function Zustand1() {
+
 
   const targetLanguage = useSettingStore((state) => state.targetLanguage)
   const level = useSettingStore((state) => state.level)
