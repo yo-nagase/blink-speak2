@@ -14,14 +14,14 @@ export default function useQuestion() {
     try {
       setIsQuestionLoading(true);
       setError(null);
-      
+
       const result = await axios.get<Question>("/api/ai/question", {
         params: {
           level: params?.level,
           category: JSON.stringify(params?.category)
         }
       });
-      
+
       setCurrentQuestion(result.data);
       return result.data;
     } catch (err) {
@@ -33,11 +33,9 @@ export default function useQuestion() {
     }
   };
 
-  const getCurrentQuestion = (): Question | undefined => currentQuestion;
-
   return {
     getNewQuestion,
-    getCurrentQuestion,
+    currentQuestion,
     isQuestionLoading,
     error
   };

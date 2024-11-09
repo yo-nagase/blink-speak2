@@ -1,5 +1,4 @@
 'use client'
-
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -28,6 +27,8 @@ import {
 } from "lucide-react"
 import { useState, useEffect } from "react"
 import useQuestion from "./hooks/useQuestion"
+import { SketchLogoIcon } from "@radix-ui/react-icons"
+import { Skeleton } from "../ui/skeleton"
 
 type AnswerHistory = {
   id: number
@@ -37,6 +38,7 @@ type AnswerHistory = {
 }
 
 export function LanguageQuiz() {
+
   const [userAnswer, setUserAnswer] = useState("")
   const [timer, setTimer] = useState(0)
   const [showResults, setShowResults] = useState(false)
@@ -51,7 +53,7 @@ export function LanguageQuiz() {
     total: 23
   })
   const [autoSubmit, setAutoSubmit] = useState(false)
-  const { getNewQuestion, getCurrentQuestion, isQuestionLoading, error } = useQuestion()
+  const { getNewQuestion, currentQuestion, isQuestionLoading, error } = useQuestion()
 
   const [answerHistory, setAnswerHistory] = useState<AnswerHistory[]>([
     {
@@ -85,7 +87,7 @@ export function LanguageQuiz() {
     //   setTimer(prev => prev + 1)
     // }, 1000)
     // return () => clearInterval(interval)
-
+    getNewQuestion()
 
   }, [])
 
@@ -179,17 +181,31 @@ export function LanguageQuiz() {
                 ))}
               </div>
             </TooltipProvider>
-            <div className="text-sm text-muted-foreground mb-4">
-              Correct answer rate for this question: 65%
-            </div>
-            <div className="flex justify-between items-start mb-6">
-              <div className="text-xl font-medium">
-                昨日は忙しかったので、映画を見に行けませんでした。<br />
+            {isQuestionLoading ? (
+              // <div className="skeleton">
+              //   <Skeleton className="w-[500px] h-[20px] rounded-full" />
+              // </div>
+              <div className="flex flex-col space-y-3">
+                <div className="space-y-2">
+                  <Skeleton className="h-[15px] w-[300px] rounded-xl" />
+                  <Skeleton className="h-6 w-[400px]" />
+                </div>
               </div>
-              <Button variant="ghost" size="icon" className="mt-1">
-                <Volume2 className="h-4 w-4" />
-              </Button>
-            </div>
+            ) : (
+              <>
+                <div className="text-sm text-muted-foreground mb-4">
+                  Correct answer rate for this question: {currentQuestion?.correctCount}%
+                </div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="text-xl font-medium">
+                    <div>{currentQuestion?.contents}</div>
+                  </div>
+                  <Button variant="ghost" size="icon" className="mt-1">
+                    <Volume2 className="h-4 w-4" />
+                  </Button>
+                </div>
+              </>
+            )}
 
             <div className="flex items-center justify-end mb-4">
               <label htmlFor="auto-submit" className="text-sm mr-2">Auto-submit after voice input</label>
